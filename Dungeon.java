@@ -8,14 +8,33 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dungeon extends World
 {
+    public static final int TIME_PER_LEVEL = 120;
+    
+    public static final int PLAYER_MAX_HP = 10;
+    private Player player;
+    public static final int PLAYER_BASE_SPEED = 3;
+    
+    
+    
 
-    /**
-     * Constructor for objects of class Dungeon.
-     * 
-     */
+    
     public Dungeon()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        setBackground(drawSpace(800,600,40));
+        
+        
+        
+        
     }
+    public static GreenfootImage drawSpace (int width, int height, int density){
+        // Draws the background as gray.
+        GreenfootImage world = new GreenfootImage (width, height);
+        world.setColor (Color.DARK_GRAY);
+        world.fill();
+        
+        return world;
+    }
+    
+    
 }
