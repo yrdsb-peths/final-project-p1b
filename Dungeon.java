@@ -36,7 +36,7 @@ public class Dungeon extends World
 
 
         
-        title = new Label("William", 100);
+        title = new Label("Mr.Chan", 100);
         int labelWidth = (int) (getWidth() * 0.5);
         int labelHeight = (int) (getHeight() * 0.35);
         
