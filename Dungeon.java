@@ -44,10 +44,11 @@ public class Dungeon extends World
 
         
     }
+    
     public static GreenfootImage drawSpace (int width, int height, int density){
         // Draws the background as gray.
         GreenfootImage world = new GreenfootImage (width, height);
-        world.setColor (Color.DARK_GRAY);
+        world.setColor (Color.GREEN);
         world.fill();
         
         return world;
