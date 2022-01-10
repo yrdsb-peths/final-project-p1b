@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dungeon extends World
 {
+
     public static final int TIME_PER_LEVEL = 120;
     
     public static final int PLAYER_MAX_HP = 10;
@@ -18,6 +19,13 @@ public class Dungeon extends World
     
 
     
+
+    Label title;
+    /**
+     * Constructor for objects of class Dungeon.
+     * 
+     */
+
     public Dungeon()
     {    
         super(800, 600, 1); 
@@ -25,6 +33,15 @@ public class Dungeon extends World
         
         
         
+
+
+        
+        title = new Label("William", 100);
+        int labelWidth = (int) (getWidth() * 0.5);
+        int labelHeight = (int) (getHeight() * 0.35);
+        
+        addObject(title, labelWidth, labelHeight);
+
         
     }
     
