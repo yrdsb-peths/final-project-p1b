@@ -3,4 +3,6 @@ comment0.target=Dungeon
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Dungeon\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Dungeon()
-numComments=2
+comment2.params=width\ height\ density
+comment2.target=greenfoot.GreenfootImage\ drawSpace(int,\ int,\ int)
+numComments=3
