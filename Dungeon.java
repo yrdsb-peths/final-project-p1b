@@ -16,7 +16,8 @@ public class Dungeon extends World
     public Dungeon()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(800, 600, 1);
+        super(800, 600, 1); 
+
         
         title = new Label("Andrew", 100);
         int labelWidth = (int) (getWidth() * 0.5);
