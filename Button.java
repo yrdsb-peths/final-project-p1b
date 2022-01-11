@@ -8,7 +8,7 @@ public class Button extends Actor
     // The images of the different button states
     GreenfootImage up = new GreenfootImage("button_up.png");
     GreenfootImage down = new GreenfootImage("button_down.png");
-
+    
     // The current state of the button.
     // The initial state of the button is UP
     private State state = State.UP;

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dungeon extends World
 {
-    Shop shop= new Shop();
+    
     
     /**
      * Constructor for objects of class Dungeon.
