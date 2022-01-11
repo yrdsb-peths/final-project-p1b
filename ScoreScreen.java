@@ -13,8 +13,10 @@ public class ScoreScreen extends World
      * Constructor for objects of class ScoreScreen.
      * 
      */
+    public int money;
     public ScoreScreen()
     {    
         super(800, 600, 1); 
+        int money = 0;
     }
 }

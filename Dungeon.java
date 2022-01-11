@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dungeon extends World
 {
-
+    Shop shop= new Shop();
+    
     /**
      * Constructor for objects of class Dungeon.
      * 
@@ -17,5 +18,6 @@ public class Dungeon extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        
     }
 }
