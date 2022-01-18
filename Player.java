@@ -24,6 +24,13 @@ public class Player extends Actor
         setImage(image);
     }
     
+    public void act(){
+        if(Greenfoot.isKeyDown("space")){
+            getWorld().addObject(new Projectiles(getRotation()), getX(), getY());
+            
+        }
+    }
+    
     
     
     public void hitMe(int damage){

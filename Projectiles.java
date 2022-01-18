@@ -12,9 +12,11 @@ public class Projectiles extends Actor
     private Player player;
     
     private boolean removeMe;
-    
-    public Projectiles(){
+    private int direction;
+    public Projectiles(int dir){
         setImage(drawProjectiles());
+        direction = dir;
+        setRotation(direction);
         
     }
     

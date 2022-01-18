@@ -100,10 +100,7 @@ public class Dungeon extends World
         player.setLocation (player.getX() + playerSpeed * playerDirection, player.getY() + playerSpeed * playerDirection2);
         
         
-        if(Greenfoot.isKeyDown("space")){
-            addObject(new Projectiles(), player.getX(), player.getY());
-            cooldown = 30;
-        }
+        
         
         
     }
