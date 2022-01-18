@@ -8,12 +8,48 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Zombie extends Enemy
 {
-    /**
-     * Act - do whatever the Zombie wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Zombie() {
+        super();
+        
+        maxHP = Dungeon.ENEMY_HP;
+        currentHP = maxHP;
+        
+        image = drawZombie();
+        setImage(image);
+        
+        
+    }
+    
+    public void addedToWorld (World w){
+        
+        player = w.getObjects(Player.class).get(0);
+    }
+    
     public void act()
     {
-        // Add your action code here.
+        turnTowards(player.getX(), player.getY());
+        move(1);
+        Player p = (Player)getOneIntersectingObject(Player.class);
+        if(p != null){
+            p.hitMe(2);
+            getWorld().removeObject(this);
+            
+        }
+        
+        
     }
-}
+    
+    private GreenfootImage drawZombie(){
+        
+        image = new GreenfootImage(24,24);
+        image.setColor(Color.RED);
+        image.fillOval(0,0,image.getWidth(), image.getHeight());
+        return image;
+        
+    
+    }
+    }
+        
+    
+    
+    

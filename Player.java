@@ -8,12 +8,36 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    private GreenfootImage image;
+    private int maxHP;
+    private int currentHP;
+    private int speed;
+    
+    public Player()
     {
-        // Add your action code here.
+        speed = 4;
+        
+        maxHP = Dungeon.PLAYER_MAX_HP;
+        currentHP = maxHP;
+        
+        image = drawPlayer();
+        setImage(image);
+    }
+    
+    
+    
+    public void hitMe(int damage){
+        currentHP = Math.max(currentHP - damage, 0);
+        if(currentHP == 0){
+            Greenfoot.stop();
+        }
+    }
+    
+    private GreenfootImage drawPlayer() {
+        image = new GreenfootImage(24,24);
+        image.setColor(Color.BLUE);
+        image.fillOval(0,0,image.getWidth(), image.getHeight());
+        return image;
+        
     }
 }
