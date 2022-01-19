@@ -19,7 +19,7 @@ public class Dungeon extends World
     
     
     
-    
+    private int number;
     
     private int timeMax;
     private int timeLeft;
@@ -67,7 +67,8 @@ public class Dungeon extends World
     }
     
     private void spawn(){
-        int randomSpawn = Greenfoot.getRandomNumber(60);
+        number = 100;
+        int randomSpawn = Greenfoot.getRandomNumber(number);
         int randX = Greenfoot.getRandomNumber(800);
         int randY = Greenfoot.getRandomNumber(600);
         if(randomSpawn == 1)
@@ -83,6 +84,13 @@ public class Dungeon extends World
         playerDirection2 = 0;
         int cooldown = 30;
         String key = Greenfoot.getKey();
+        
+        if("space".equals(key)){
+            player.shoot();
+            
+            
+            
+        }
         
         if (Greenfoot.isKeyDown("left")){
             playerDirection = -1;

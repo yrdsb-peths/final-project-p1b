@@ -29,7 +29,15 @@ public class Projectiles extends Actor
             removeMe = true;
         }
         
-        if (getX() >= getWorld().getHeight()-1){
+        if(getY() <= 0){
+            removeMe = true;
+        }
+        
+        if (getX() >= getWorld().getWidth()-1){
+            removeMe = true;
+        }
+        
+        if(getX() <= 0){
             removeMe = true;
         }
         

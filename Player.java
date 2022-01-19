@@ -24,15 +24,12 @@ public class Player extends Actor
         setImage(image);
     }
     
-    public void act(){
-        if(Greenfoot.isKeyDown("space")){
-            Projectiles bullet = new Projectiles();
-            bullet.setRotation(getRotation());
-            getWorld().addObject(bullet,getX(), getY());
-            
-            
-            
-        }
+    
+    
+    public void shoot() {
+        Projectiles bullet = new Projectiles();
+        bullet.setRotation(getRotation());
+        getWorld().addObject(bullet,getX(), getY());
     }
     
     

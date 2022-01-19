@@ -27,8 +27,12 @@ public class Zombie extends Enemy
     
     public void act()
     {
-        turnTowards(player.getX(), player.getY());
-        move(1);
+        int random = Greenfoot.getRandomNumber(2);
+        if(random == 1){
+            turnTowards(player.getX(), player.getY());
+            move(1);
+        }
+        
         Player p = (Player)getOneIntersectingObject(Player.class);
         if(p != null){
             p.hitMe(2);
