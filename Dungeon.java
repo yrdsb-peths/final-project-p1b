@@ -13,7 +13,7 @@ public class Dungeon extends World
     
     public static final int PLAYER_MAX_HP = 10;
     private Player player;
-    public static final int PLAYER_BASE_SPEED = 3;
+    public static final int PLAYER_BASE_SPEED = 2;
     
     public static final int ENEMY_HP = 2;
     
@@ -67,7 +67,7 @@ public class Dungeon extends World
     }
     
     private void spawn(){
-        int randomSpawn = Greenfoot.getRandomNumber(20);
+        int randomSpawn = Greenfoot.getRandomNumber(60);
         int randX = Greenfoot.getRandomNumber(800);
         int randY = Greenfoot.getRandomNumber(600);
         if(randomSpawn == 1)
@@ -86,16 +86,20 @@ public class Dungeon extends World
         
         if (Greenfoot.isKeyDown("left")){
             playerDirection = -1;
+            player.setRotation(180);
         } 
         if (Greenfoot.isKeyDown("right")){
             playerDirection = 1;
+            player.setRotation(0);
         } 
         if(Greenfoot.isKeyDown("up")){
             playerDirection2 = -1;
+            player.setRotation(270);
             
         }
         if(Greenfoot.isKeyDown("down")){
             playerDirection2 = 1;
+            player.setRotation(90);
         }
         player.setLocation (player.getX() + playerSpeed * playerDirection, player.getY() + playerSpeed * playerDirection2);
         

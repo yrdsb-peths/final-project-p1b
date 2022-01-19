@@ -26,7 +26,11 @@ public class Player extends Actor
     
     public void act(){
         if(Greenfoot.isKeyDown("space")){
-            getWorld().addObject(new Projectiles(getRotation()), getX(), getY());
+            Projectiles bullet = new Projectiles();
+            bullet.setRotation(getRotation());
+            getWorld().addObject(bullet,getX(), getY());
+            
+            
             
         }
     }
@@ -43,7 +47,7 @@ public class Player extends Actor
     private GreenfootImage drawPlayer() {
         image = new GreenfootImage(24,24);
         image.setColor(Color.BLUE);
-        image.fillOval(0,0,image.getWidth(), image.getHeight());
+        image.fillRect(0,0,12, 24);
         return image;
         
     }

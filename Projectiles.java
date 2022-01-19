@@ -13,10 +13,8 @@ public class Projectiles extends Actor
     
     private boolean removeMe;
     private int direction;
-    public Projectiles(int dir){
+    public Projectiles(){
         setImage(drawProjectiles());
-        direction = dir;
-        setRotation(direction);
         
     }
     
@@ -24,7 +22,8 @@ public class Projectiles extends Actor
     
     public void act()
     {
-        move(2);
+        
+        move(4);
         
         if (getY() >= getWorld().getHeight()-1){
             removeMe = true;
