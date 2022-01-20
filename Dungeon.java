@@ -17,7 +17,7 @@ public class Dungeon extends World
     
     public static final int ENEMY_HP = 2;
     
-    
+    Counter counter = new Counter();
     
     private int number;
     
@@ -66,6 +66,8 @@ public class Dungeon extends World
         
     }
     
+    
+    
     private void spawn(){
         number = 100;
         int randomSpawn = Greenfoot.getRandomNumber(number);
@@ -77,6 +79,8 @@ public class Dungeon extends World
         }
         
     }
+    
+    
     
     private void checkKeys(){
         // Check for movement and adjusts.
@@ -120,7 +124,7 @@ public class Dungeon extends World
     public static GreenfootImage drawSpace (int width, int height, int density){
         // Draws the background as gray.
         GreenfootImage world = new GreenfootImage (width, height);
-        world.setColor (Color.GREEN);
+        world.setColor (Color.BLACK);
         world.fill();
         
         return world;

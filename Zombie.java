@@ -36,6 +36,7 @@ public class Zombie extends Enemy
         Player p = (Player)getOneIntersectingObject(Player.class);
         if(p != null){
             p.hitMe(2);
+            
             getWorld().removeObject(this);
             
         }
