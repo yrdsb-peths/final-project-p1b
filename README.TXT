@@ -7,6 +7,6 @@ all they need to know. The comments should usually include at least:
 PROJECT TITLE: HOLD THE LINE
 PURPOSE OF PROJECT: To play and enjoy
 VERSION or DATE: 1/27/2022
-HOW TO START THIS PROJECT:
+HOW TO START THIS PROJECT: Open Greenfoot
 AUTHORS: Willam, Andrew, Jacky
 USER INSTRUCTIONS: 
