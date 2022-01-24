@@ -4,9 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
+PROJECT TITLE: HOLD THE LINE
+PURPOSE OF PROJECT: To play and enjoy
+VERSION or DATE: 1/27/2022
 HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+AUTHORS: Willam, Andrew, Jacky
+USER INSTRUCTIONS: 
