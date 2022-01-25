@@ -8,5 +8,5 @@ comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Projectile\ wants\ to\ do.\ This\
 comment3.params=w
 comment3.target=void\ addedToWorld(greenfoot.World)
 comment4.params=
-comment4.target=greenfoot.GreenfootImage\ drawPlayer()
+comment4.target=greenfoot.GreenfootImage\ drawProjectile()
 numComments=5
