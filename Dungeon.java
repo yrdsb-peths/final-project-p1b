@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dungeon extends World
 {
-
+    private MouseInfo mouse;
     public static final int TIME_PER_WAVE = 30;
     
     public static final int PLAYER_MAX_HP = 10;
@@ -17,24 +17,15 @@ public class Dungeon extends World
     
     public static final int ENEMY_HP = 2;
     
-    
-    
     private int number;
     
     private int timeMax;
     private int timeLeft;
     
+    private Score score;
+    private HealthScore health;
 
-    private int playerDirection;
-    private int playerDirection2;
-    private int playerSpeed;
-    
-    
-    
-    
-    
 
-    Label title;
     /**
      * Constructor for objects of class Dungeon.
      * 
@@ -43,7 +34,7 @@ public class Dungeon extends World
     public Dungeon()
     {    
         super(800, 600, 1); 
-        setBackground(drawSpace(800,600,40));
+        //setBackground(drawSpace(800,600,40));
         
         timeMax = TIME_PER_WAVE*60;
         timeLeft = timeMax;
@@ -51,17 +42,18 @@ public class Dungeon extends World
         player = new Player();
         addObject(player, 400,300);
         
-        playerSpeed = PLAYER_BASE_SPEED;
-
+        score = new Score();
+        addObject(score, 260, 30);
+        Score.score = 0;
         
-        
-
-        
+        health = new HealthScore();
+        addObject(health, 600, 30);
+        HealthScore.health = 20;
     }
     
     public void act(){
         timeLeft = timeLeft-1;
-        checkKeys();
+        checkShoot();
         spawn();
         
     }
@@ -78,53 +70,23 @@ public class Dungeon extends World
         
     }
     
-    private void checkKeys(){
-        // Check for movement and adjusts.
-        playerDirection = 0;
-        playerDirection2 = 0;
-        int cooldown = 30;
-        String key = Greenfoot.getKey();
+    private void checkShoot(){
+         String key = Greenfoot.getKey();
         
         if("space".equals(key)){
             player.shoot();
-            
-            
-            
         }
-        
-        if (Greenfoot.isKeyDown("left")){
-            playerDirection = -1;
-            player.setRotation(180);
-        } 
-        if (Greenfoot.isKeyDown("right")){
-            playerDirection = 1;
-            player.setRotation(0);
-        } 
-        if(Greenfoot.isKeyDown("up")){
-            playerDirection2 = -1;
-            player.setRotation(270);
-            
-        }
-        if(Greenfoot.isKeyDown("down")){
-            playerDirection2 = 1;
-            player.setRotation(90);
-        }
-        player.setLocation (player.getX() + playerSpeed * playerDirection, player.getY() + playerSpeed * playerDirection2);
-        
-        
-        
-        
-        
     }
     
-    public static GreenfootImage drawSpace (int width, int height, int density){
-        // Draws the background as gray.
-        GreenfootImage world = new GreenfootImage (width, height);
-        world.setColor (Color.GREEN);
-        world.fill();
-        
-        return world;
+    public Score getScoreCounter() {
+        return score;
     }
+    
+    public HealthScore getHealthCounter() {
+        return health;
+    }
+    
+    
     
     
 }

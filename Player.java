@@ -8,43 +8,82 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    private GreenfootImage image;
-    private int maxHP;
-    private int currentHP;
+    private int hp;
     private int speed;
+    private StatBar statBar;
+    private GreenfootImage image;
     
     public Player()
     {
         speed = 4;
         
-        maxHP = Dungeon.PLAYER_MAX_HP;
-        currentHP = maxHP;
+        hp = 20;
+        
+        
+        statBar = new StatBar(10, 10, this, 36, 6, 24,  Color.GREEN,Color.RED, false);
         
         image = drawPlayer();
         setImage(image);
     }
     
-    
-    
-    public void shoot() {
-        Projectiles bullet = new Projectiles();
-        bullet.setRotation(getRotation());
-        getWorld().addObject(bullet,getX(), getY());
+    public void addToWorld (World w){
+        w.addObject(statBar, 0, 0);
+        statBar.update();
     }
     
+    public void act(){
+        checkKeys();
+        statBar.moveMe();
+    }
     
+    private void checkKeys(){
+        // Check for movement and adjusts.
+        int moveX = 0;
+        int moveY = 0;
+        int direction = 0;
+        
+        
+        if (Greenfoot.isKeyDown("a")){
+            moveX -= speed;
+            setRotation(180);
+        } 
+        if (Greenfoot.isKeyDown("d")){
+            moveX += speed;
+            setRotation(0);
+
+        } 
+        if(Greenfoot.isKeyDown("w")){
+            moveY -= speed; 
+            setRotation(270);
+        }
+        if(Greenfoot.isKeyDown("s")){
+            moveY += speed;
+            setRotation(90);
+        }
+      
+        
+        setLocation (getX() + moveX, getY() + moveY);       
+    }
     
+    public void shoot() {
+        Projectile bullet = new Projectile();
+        getWorld().addObject(bullet,getX(), getY());
+        bullet.setRotation(getRotation());        
+    }
+    
+
     public void hitMe(int damage){
-        currentHP = Math.max(currentHP - damage, 0);
-        if(currentHP == 0){
+        hp = Math.max(hp -= damage, 0);
+        statBar.update(new int[]{hp});
+        ((Dungeon)getWorld()).getHealthCounter().addHealthScore(hp);
+        
+        if(hp == 0){
             Greenfoot.stop();
         }
     }
     
     private GreenfootImage drawPlayer() {
-        image = new GreenfootImage(24,24);
-        image.setColor(Color.BLUE);
-        image.fillRect(0,0,12, 24);
+        image = new GreenfootImage("Character.png");        
         return image;
         
     }
