@@ -34,6 +34,7 @@ public class Enemy extends Actor
         currentHP = Math.max(currentHP - damage, 0);
         if(currentHP == 0){
             getWorld().removeObject(this);
+            
         }
     }
 }

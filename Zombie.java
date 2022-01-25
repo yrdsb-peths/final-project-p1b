@@ -37,7 +37,7 @@ public class Zombie extends Enemy
         if(p != null){
             p.hitMe(2);
             getWorld().removeObject(this);
-            
+
         }
         
         
@@ -45,14 +45,14 @@ public class Zombie extends Enemy
     
     private GreenfootImage drawZombie(){
         
-        image = new GreenfootImage(24,24);
-        image.setColor(Color.RED);
-        image.fillOval(0,0,image.getWidth(), image.getHeight());
+        image = new GreenfootImage("Zombie.png");
         return image;
         
     
     }
-    }
+    
+    
+}
         
     
     

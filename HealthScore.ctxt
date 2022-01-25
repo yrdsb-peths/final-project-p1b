@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=HealthScore
+comment1.params=
+comment1.target=HealthScore()
+comment2.params=amount
+comment2.target=void\ addHealthScore(int)
+numComments=3
