@@ -13,7 +13,7 @@ public class Skeleton extends Enemy
     private int maxCd;
     
     public Skeleton (){
-        maxCd = 60;
+        maxCd = 150;
         cd = maxCd;
         
         image = drawSkeleton();
@@ -27,18 +27,17 @@ public class Skeleton extends Enemy
     
     public void act()
     {
-        //if (cd > 0){
-            //cd--;
-        //} else {
-            // shoot 
-            //getWorld().addObject(new Arrow(), getX(), getY());
-            //cd = maxCd;
-        //}
+        if (cd > 0){
+            cd--;
+        } else {
+            getWorld().addObject(new Arrow(), getX(), getY());
+            cd = maxCd;
+        }
         
         int random = Greenfoot.getRandomNumber(2);
         if(random == 1){
             turnTowards(player.getX(), player.getY());
-            move(1);
+            
         }
         
         Player p = (Player)getOneIntersectingObject(Player.class);

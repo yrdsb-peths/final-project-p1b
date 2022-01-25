@@ -11,7 +11,7 @@ public class Projectile extends Actor
     public Projectile () {
         remove = false;
         
-        image = drawPlayer();
+        image = drawProjectile();
         setImage(image);
     }
 
@@ -43,7 +43,7 @@ public class Projectile extends Actor
         Player p = (Player)w.getObjects(Player.class).get(0);
         turnTowards (p.getX(), p.getY());
     }
-    private GreenfootImage drawPlayer() {
+    private GreenfootImage drawProjectile() {
         image = new GreenfootImage("Bullet.png");
         
         return image;
