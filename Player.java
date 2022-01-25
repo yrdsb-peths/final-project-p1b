@@ -13,6 +13,11 @@ public class Player extends Actor
     private StatBar statBar;
     private GreenfootImage image;
     
+    private static GreenfootSound[] gunSounds;
+    private int gunSoundIndex;
+    
+    private int shotCooldown, cooldownCounter;
+    
     public Player()
     {
         speed = 4;
@@ -24,6 +29,16 @@ public class Player extends Actor
         
         image = drawPlayer();
         setImage(image);
+        
+        gunSoundIndex = 0;
+        
+        gunSounds = new GreenfootSound [20];
+        for (int i = 0; i < gunSounds.length; i++){
+            gunSounds[i] = new GreenfootSound("Gun Sound.mp3");
+            gunSounds[i].setVolume(70);
+        }
+        
+        cooldownCounter = shotCooldown;
     }
     
     public void addToWorld (World w){
@@ -34,6 +49,11 @@ public class Player extends Actor
     public void act(){
         checkKeys();
         statBar.moveMe();
+        
+        if (cooldownCounter > 0)
+        {
+            cooldownCounter--;
+        }
     }
     
     private void checkKeys(){
@@ -66,9 +86,21 @@ public class Player extends Actor
     }
     
     public void shoot() {
-        Projectile bullet = new Projectile();
-        getWorld().addObject(bullet,getX(), getY());
-        bullet.setRotation(getRotation());        
+            
+        
+        if (cooldownCounter == 0){
+            gunSounds[gunSoundIndex].play();
+            gunSoundIndex++;
+            if (gunSoundIndex >= gunSounds.length){
+                gunSoundIndex = 0;
+            }
+            
+            Projectile bullet = new Projectile();
+            getWorld().addObject(bullet,getX(), getY());
+            bullet.setRotation(getRotation());  
+        
+            cooldownCounter = shotCooldown;
+        }
     }
     
 

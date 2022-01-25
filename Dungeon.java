@@ -24,6 +24,10 @@ public class Dungeon extends World
     
     private Score score;
     private HealthScore health;
+    
+    private String songName;
+    private static GreenfootSound music;
+
 
 
     /**
@@ -49,6 +53,24 @@ public class Dungeon extends World
         health = new HealthScore();
         addObject(health, 600, 30);
         HealthScore.health = 20;
+        
+        songName = "Battle 1.mp3";
+        music = new GreenfootSound (songName);
+  
+        
+        
+        music.setVolume(50);
+        music.playLoop();
+        
+        
+    }
+    
+    public void started (){ // this only triggers when the "Run" button is pressed while 
+        music.playLoop();     // this World is active, which might happen if paused, but not as a start state.
+    }
+
+    public void stopped (){
+        music.stop();
     }
     
     public void act(){
@@ -102,8 +124,11 @@ public class Dungeon extends World
         
         if("space".equals(key)){
             player.shoot();
+            
         }
     }
+    
+    
     
     public Score getScoreCounter() {
         return score;

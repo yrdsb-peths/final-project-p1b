@@ -55,4 +55,12 @@ public class Skeleton extends Enemy
         
     
     }
+    
+    public void hitMe(int damage){
+        currentHP = Math.max(currentHP - damage, 0);
+        if(currentHP == 0){
+            getWorld().removeObject(this);
+            
+        }
+    }
 }

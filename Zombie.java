@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Zombie extends Enemy
 {
+
+    
     public Zombie() {
         super();
         
@@ -17,6 +19,9 @@ public class Zombie extends Enemy
         image = drawZombie();
         setImage(image);
         
+
+        
+
         
     }
     
@@ -39,8 +44,7 @@ public class Zombie extends Enemy
             getWorld().removeObject(this);
 
         }
-        
-        
+
     }
     
     private GreenfootImage drawZombie(){
@@ -49,6 +53,14 @@ public class Zombie extends Enemy
         return image;
         
     
+    }
+    
+    public void hitMe(int damage){
+        currentHP = Math.max(currentHP - damage, 0);
+        if(currentHP == 0){
+            getWorld().removeObject(this);
+            
+        }
     }
     
     
