@@ -54,21 +54,48 @@ public class Dungeon extends World
     public void act(){
         timeLeft = timeLeft-1;
         checkShoot();
-        spawn();
-        
+        spawnZombie();
+        spawnSkeleton();
     }
     
-    private void spawn(){
+    
+    private void spawnZombie(){
         number = 100;
         int randomSpawn = Greenfoot.getRandomNumber(number);
         int randX = Greenfoot.getRandomNumber(800);
         int randY = Greenfoot.getRandomNumber(600);
+        
+
         if(randomSpawn == 1)
         {
             addObject(new Zombie(), randX, randY);
         }
         
     }
+    
+    private void spawnSkeleton(){
+        int side = Greenfoot.getRandomNumber (4);
+        int xx, yy;
+        int randomSpawn = Greenfoot.getRandomNumber(300);
+        
+        if (randomSpawn == 1){
+            if (side == 0){
+                yy = 50;
+                xx = Greenfoot.getRandomNumber (getWidth());
+            } else if (side == 1) {
+                yy = getHeight() - 50;
+                xx = Greenfoot.getRandomNumber (getWidth());
+            } else if (side == 2) {
+                xx = 35;
+                yy = Greenfoot.getRandomNumber (getHeight());
+            } else {
+                xx = getWidth() - 35;
+                yy = Greenfoot.getRandomNumber (getHeight());
+            }
+            addObject (new Skeleton(), xx, yy);
+        }
+    }
+    
     
     private void checkShoot(){
          String key = Greenfoot.getKey();
