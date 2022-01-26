@@ -15,10 +15,11 @@ public class ScoreScreen extends World
     public ScoreScreen()
     {    
         super(800, 600, 1);
+        // Added the label and display it
         display = new Label("Thanks for playing!", 100);
         
         addObject(display, 400, 200);
-        
+        // Play the ending music
         songName = "Ending.mp3";
         music = new GreenfootSound (songName);
   

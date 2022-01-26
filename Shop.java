@@ -10,6 +10,7 @@ public class Shop extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    // This was suppose to be Jacky's part
     public Shop()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
