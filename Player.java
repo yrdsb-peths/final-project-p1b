@@ -46,23 +46,27 @@ public class Player extends Actor
         if (Greenfoot.isKeyDown("a")){
             moveX -= speed;
             setRotation(180);
+            
         } 
         if (Greenfoot.isKeyDown("d")){
             moveX += speed;
             setRotation(0);
-
+            
         } 
         if(Greenfoot.isKeyDown("w")){
             moveY -= speed; 
             setRotation(270);
+            
         }
         if(Greenfoot.isKeyDown("s")){
             moveY += speed;
             setRotation(90);
+            
         }
       
         
-        setLocation (getX() + moveX, getY() + moveY);       
+        setLocation (getX() + moveX, getY() + moveY);
+        
     }
     
     public void shoot() {

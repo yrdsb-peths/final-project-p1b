@@ -24,8 +24,9 @@ public class Dungeon extends World
     
     private Score score;
     private HealthScore health;
-
-
+    private GreenfootSound battle;
+    private GreenfootSound shoot=new GreenfootSound("Shoot.wav");
+    
     /**
      * Constructor for objects of class Dungeon.
      * 
@@ -35,7 +36,6 @@ public class Dungeon extends World
     {    
         super(800, 600, 1); 
         //setBackground(drawSpace(800,600,40));
-        
         timeMax = TIME_PER_WAVE*60;
         timeLeft = timeMax;
         
@@ -99,9 +99,10 @@ public class Dungeon extends World
     
     private void checkShoot(){
          String key = Greenfoot.getKey();
-        
+        //Shoots out a bullet in the player's direction, playing a sound
         if("space".equals(key)){
             player.shoot();
+            shoot.play();
         }
     }
     
@@ -112,7 +113,22 @@ public class Dungeon extends World
     public HealthScore getHealthCounter() {
         return health;
     }
-    
+    //picks one of 3 songs to play when you start the game.
+    public void started(){
+        int song=Greenfoot.getRandomNumber(3);
+        if(song==0){
+            battle=new GreenfootSound("Battle 1.mp3");
+        }else if(song==1){
+            battle=new GreenfootSound("Battle 2.mp3");
+        }else{
+            battle=new GreenfootSound("Battle 3.mp3");
+        }
+        battle.playLoop();
+    }
+    //stops the game whenever the game is stopped/paused.
+    public void stopped(){
+        battle.stop();
+    }
     
     
     
