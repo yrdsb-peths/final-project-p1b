@@ -7,10 +7,10 @@ public class Projectile extends Actor
 {
     private boolean remove;
     private GreenfootImage image;
-    
+    // Similar to arrow since they both projectiles, just one use by player and arrow use by skeletons
     public Projectile () {
         remove = false;
-        
+        // Draw image
         image = drawProjectile();
         setImage(image);
     }
@@ -21,16 +21,20 @@ public class Projectile extends Actor
      */
     public void act() 
     {
+        // So it moves 300 a second
         move (5);
+        // Constantly checks if bullet hits player. If so, deal 1 damage and remove arrow from world.
 
         Enemy e = (Enemy)getOneIntersectingObject(Enemy.class);
         if (e != null){
             e.hitMe(1);
             remove = true;
+            // If you kill the unit, you gain one point
             ((Dungeon)getWorld()).getScoreCounter().addScore(1);
         }
 
         if (isAtEdge()){
+            // Removes bullet if bullet goes outside of world.
             remove = true;
         }
 
@@ -45,7 +49,7 @@ public class Projectile extends Actor
     }
     private GreenfootImage drawProjectile() {
         image = new GreenfootImage("Bullet.png");
-        
+        // Adds image of bullet.
         return image;
         
     }

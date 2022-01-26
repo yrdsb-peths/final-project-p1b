@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=greenfoot.GreenfootImage\ drawSkeleton()
-numComments=5
+comment5.params=damage
+comment5.target=void\ hitMe(int)
+numComments=6

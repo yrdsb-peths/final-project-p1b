@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+// Never used this since we didn't have time to do an hp bar.
 /**
  * New and Improved Stat Bar (Formerly Health Bar). This stat bar can be set to follow
  * an Actor or stay in one place (see constructors). This stat bar may have customized colors,

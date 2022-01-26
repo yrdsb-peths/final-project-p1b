@@ -8,13 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ScoreScreen extends World
 {
-
-    /**
-     * Constructor for objects of class ScoreScreen.
-     * 
-     */
+    Label display;
+    private static GreenfootSound music;
+    private String songName;
+    
     public ScoreScreen()
     {    
-        super(800, 600, 1); 
+        super(800, 600, 1);
+        // Added the label and display it
+        display = new Label("Thanks for playing!", 100);
+        
+        addObject(display, 400, 200);
+        // Play the ending music
+        songName = "Ending.mp3";
+        music = new GreenfootSound (songName);
+  
+        
+        
+        music.setVolume(40);
+        music.playLoop();
     }
 }
