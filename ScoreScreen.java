@@ -8,14 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ScoreScreen extends World
 {
+    Label display;
     
-
-    /**
-     * Constructor for objects of class ScoreScreen.
-     * 
-     */
     public ScoreScreen()
     {    
-        super(800, 600, 1); 
+        super(800, 600, 1);
+        display = new Label("Thanks for playing!", 100);
+        
+        addObject(display, 400, 200);
     }
 }
