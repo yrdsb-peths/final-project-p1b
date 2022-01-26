@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Zombie extends Enemy
 {
+    private static GreenfootSound[] deathSounds;
+    private int deathSoundIndex;
 
     
     public Zombie() {
@@ -19,6 +21,13 @@ public class Zombie extends Enemy
         image = drawZombie();
         setImage(image);
         
+        deathSoundIndex = 0;
+        
+        deathSounds = new GreenfootSound [20];
+        for (int i = 0; i < deathSounds.length; i++){
+            deathSounds[i] = new GreenfootSound("Enemy Death.wav");
+            deathSounds[i].setVolume(85);
+        }
 
         
 
@@ -42,6 +51,11 @@ public class Zombie extends Enemy
         if(p != null){
             p.hitMe(2);
             getWorld().removeObject(this);
+            deathSounds[deathSoundIndex].play();
+            deathSoundIndex++;
+            if (deathSoundIndex >= deathSounds.length){
+                deathSoundIndex = 0;
+            }
 
         }
 
@@ -59,7 +73,11 @@ public class Zombie extends Enemy
         currentHP = Math.max(currentHP - damage, 0);
         if(currentHP == 0){
             getWorld().removeObject(this);
-            
+            deathSounds[deathSoundIndex].play();
+            deathSoundIndex++;
+            if (deathSoundIndex >= deathSounds.length){
+                deathSoundIndex = 0;
+            }
         }
     }
     

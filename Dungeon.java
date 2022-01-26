@@ -59,7 +59,7 @@ public class Dungeon extends World
   
         
         
-        music.setVolume(50);
+        music.setVolume(40);
         music.playLoop();
         
         

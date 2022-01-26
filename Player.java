@@ -110,7 +110,7 @@ public class Player extends Actor
         ((Dungeon)getWorld()).getHealthCounter().addHealthScore(hp);
         
         if(hp == 0){
-            Greenfoot.stop();
+            Greenfoot.setWorld(new ScoreScreen());
         }
     }
     

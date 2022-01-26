@@ -12,12 +12,23 @@ public class Skeleton extends Enemy
     private int cd;
     private int maxCd;
     
+    private static GreenfootSound[] deathSounds2;
+    private int deathSoundIndex2;
+    
     public Skeleton (){
         maxCd = 150;
         cd = maxCd;
         
         image = drawSkeleton();
         setImage(image);
+        
+        deathSoundIndex2 = 0;
+        
+        deathSounds2 = new GreenfootSound [20];
+        for (int i = 0; i < deathSounds2.length; i++){
+            deathSounds2[i] = new GreenfootSound("Enemy Death.wav");
+            deathSounds2[i].setVolume(85);
+        }
     }
     
     public void addedToWorld (World w){
@@ -44,6 +55,11 @@ public class Skeleton extends Enemy
         if(p != null){
             p.hitMe(2);
             getWorld().removeObject(this);
+            deathSounds2[deathSoundIndex2].play();
+            deathSoundIndex2++;
+            if (deathSoundIndex2 >= deathSounds2.length){
+                deathSoundIndex2 = 0;
+            }
 
         }
     }
@@ -60,7 +76,11 @@ public class Skeleton extends Enemy
         currentHP = Math.max(currentHP - damage, 0);
         if(currentHP == 0){
             getWorld().removeObject(this);
-            
+            deathSounds2[deathSoundIndex2].play();
+            deathSoundIndex2++;
+            if (deathSoundIndex2 >= deathSounds2.length){
+                deathSoundIndex2 = 0;
+            }
         }
     }
 }
