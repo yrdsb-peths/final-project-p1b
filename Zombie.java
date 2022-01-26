@@ -38,6 +38,7 @@ public class Zombie extends Enemy
     public void addedToWorld (World w){
         
         player = w.getObjects(Player.class).get(0);
+        
     }
     
     public void act()

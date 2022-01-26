@@ -92,10 +92,11 @@ public class Dungeon extends World
         int randY = Greenfoot.getRandomNumber(600);
         // If randomSpawn is 1 so 1 in 100 chance, it will spawn at random x and y location
         
-
+        Zombie zom = new Zombie();
         if(randomSpawn == 1)
         {
-            addObject(new Zombie(), randX, randY);
+            addObject(zom, randX, randY);
+            
         }
         
     }
