@@ -111,6 +111,7 @@ public class Player extends Actor
         
         if(hp == 0){
             Greenfoot.setWorld(new ScoreScreen());
+            ((Dungeon)getWorld()).stopped();
         }
     }
     

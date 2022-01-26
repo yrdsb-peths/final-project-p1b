@@ -14,6 +14,8 @@ public class Home extends World implements Clickable
     Label display3;
     Label display4;
     Button button;
+    private static GreenfootSound music;
+    private String songName;
     public Home()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -35,11 +37,28 @@ public class Home extends World implements Clickable
         int buttonWidth = (int) (getWidth() * 0.5);
         int buttonHeight = (int) (getHeight() * 0.7);
         addObject(button, buttonWidth, buttonHeight);
+        
+        songName = "Menu.mp3";
+        music = new GreenfootSound (songName);
+  
+        
+        
+        music.setVolume(40);
+        music.playLoop();
+    }
+    
+    private void stop(){
+        music.stop();
     }
     
     public void onClick()
     {
         Greenfoot.setWorld(new Dungeon());
+        stop();
+    }
+    
+    public void started (){ // this only triggers when the "Run" button is pressed while 
+        music.playLoop();     // this World is active, which might happen if paused, but not as a start state.
     }
     
     public void act(){
